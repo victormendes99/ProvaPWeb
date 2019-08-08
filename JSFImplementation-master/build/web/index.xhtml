@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Formulários</title>
+    </h:head>
+    <h:body>
+        <h:form>   
+    <p:dataTable id="forms" var="formulario" value="#{gridView.formularios}" editable="true" style="margin-bottom:20px">
+        <f:facet name="header">
+            Formulários
+        </f:facet>
+ 
+        <p:ajax event="rowEdit" listener="#{gridView.onRowEdit}"  />
+        <p:ajax event="rowEditCancel" listener="#{gridView.onRowDelete}" update="forms" />
+ 
+        <p:column headerText="Receptor">
+            <p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{formulario.receptor}" /></f:facet>
+                <f:facet name="input"><p:inputText id="modelInput" value="#{formulario.receptor}" style="width:100%"/></f:facet>
+            </p:cellEditor>
+        </p:column>
+ 
+        <p:column headerText="Telefax">
+            <p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{formulario.telefax}" /></f:facet>
+                <f:facet name="input"><p:inputText value="#{formulario.telefax}" style="width:100%" label="Telefax"/></f:facet>
+            </p:cellEditor>
+        </p:column>
+ 
+        <p:column headerText="E-mail">
+            <p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{formulario.email}" /></f:facet>
+                <f:facet name="input"><p:inputText value="#{formulario.email}" style="width:100%" label="Telefax"/></f:facet>
+            </p:cellEditor>
+        </p:column>
+ 
+        <p:column headerText="De">
+            <p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{formulario.emissor}" /></f:facet>
+                <f:facet name="input"><p:inputText value="#{formulario.emissor}" style="width:100%" label="Emissor"/></f:facet>
+            </p:cellEditor>
+        </p:column>
+        
+        <p:column headerText="Telefax">
+            <p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{formulario.telefaxEmissor}" /></f:facet>
+                <f:facet name="input"><p:inputText value="#{formulario.telefaxEmissor}" style="width:100%" label="Telefax"/></f:facet>
+            </p:cellEditor>
+        </p:column>
+        
+        <p:column headerText="E-mail">
+            <p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{formulario.emailEmissor}" /></f:facet>
+                <f:facet name="input"><p:inputText value="#{formulario.emailEmissor}" style="width:100%" label="E-mail"/></f:facet>
+            </p:cellEditor>
+        </p:column>
+        
+        <p:column headerText="Data">
+            <p:cellEditor>
+                <f:facet name="output"><h:outputText value="#{formulario.date}" /></f:facet>
+                <f:facet name="input"><p:inputText value="#{formulario.date}" style="width:100%" label="Data"/></f:facet>
+            </p:cellEditor>
+        </p:column>
+ 
+        <p:column style="width:35px">
+            <p:rowEditor />
+        </p:column>
+    </p:dataTable>  
+</h:form>  
+        
+    </h:body>
+</html>
+

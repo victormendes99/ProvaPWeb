@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Formulário</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <body>
+        
+        <h1 style="bold" align="center">SESSÃO DA TARDE DO IFBA</h1>
+        <h2 align="center">CURSO DE ADS</h2>
+        <h2 align ="center">SALVADOR, AGOSTO de 2019 - IFBA</h2>
+        
+        <h:form>
+    <p:growl id="msgGrowl"  showDetail="true" sticky="false" />        
+    <p:panel>
+        <p:messages>
+            
+        </p:messages>
+ 
+        <h:panelGrid id="grid" columns="4" cellpadding="5">
+            <h:outputLabel for="receptor" value="Para:" style="font-weight:bold"/>
+            <p:inputText id="receptor" value="#{validationView.formulario.receptor}" required="true" label="Para"/>
+            <p:message for="receptor" />
+            <h:outputText value="#{validationView.formulario.receptor}" />
+ 
+            <h:outputLabel for="number" value="Telefax:" style="font-weight:bold"/>
+            <p:inputText id="number" value="#{validationView.formulario.telefax}" label="Number">
+            </p:inputText>
+            <p:message for="number" />
+            <h:outputText value="#{validationView.formulario.telefax}" />
+ 
+            <h:outputLabel for="mail" value="e-mail:" style="font-weight:bold"/>
+            <p:inputText id="mail" value="#{validationView.formulario.email}">
+            </p:inputText>
+            <p:message for="mail" />
+            <h:outputText value="#{validationView.formulario.email}" />
+ 
+            <h:outputLabel for="emissor" value="De:" style="font-weight:bold"/>
+            <p:inputText id="emissor" value="#{validationView.formulario.emissor}">
+            </p:inputText>
+            <p:message for="emissor" />
+            <h:outputText value="#{validationView.formulario.emissor}">
+            </h:outputText>
+ 
+            <h:outputLabel for="numberem" value="Telefax:" style="font-weight:bold"/>
+            <p:inputText id="numberem" value="#{validationView.formulario.telefaxEmissor}" label="Numberem">
+            </p:inputText>
+            <p:message for="numberem" />
+            <h:outputText value="#{validationView.formulario.telefaxEmissor}" />
+ 
+            
+            <h:outputLabel for="mailem" value="e-mail" style="font-weight:bold"/>
+            <p:inputText id="mailem" value="#{validationView.formulario.emailEmissor}">
+            </p:inputText>
+            <p:message for="mailem" />
+            <h:outputText value="#{validationView.formulario.emailEmissor}" />
+            
+            <h:outputLabel for="date" value="Data" style="font-weight:bold"/>
+            <p:inputText id="date" value="#{validationView.formulario.date}" label="Date">
+                <f:convertDateTime pattern="MM/dd/yyyy" />
+            </p:inputText>
+            <p:message for="date" />
+            <h:outputText value="#{validationView.formulario.date}">
+                <f:convertDateTime pattern="MM/dd/yyyy" />
+            </h:outputText>
+ 
+            
+        </h:panelGrid>
+        
+        
+ 
+        <p:commandButton value="Save" id="save" action="#{validationView.buttonAction()}" update = "msgGrowl"/>
+    </p:panel>
+</h:form>
+        <h:link outcome="index" value="Clique aqui para ver os formulários já inseridos" hreflang="index.xhtml" />
+    </body>
+</html>

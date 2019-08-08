@@ -1,0 +1,9 @@
+CREATE TABLE formulario (
+ receptor TEXT  NULL,
+ emissor TEXT  NULL,
+ telefax TEXT  NULL,
+ telefaxEmissor TEXT  NULL,
+ email TEXT  NULL,
+ emailEmissor TEXT  NULL ,
+ dataEnvio TEXT  NULL 
+);
